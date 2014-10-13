@@ -1,0 +1,19 @@
+{
+  "@context" : {
+      "api" : "http://landregistry.data.gov.uk/api/",
+      "ppd" : "http://landregistry.data.gov.uk/def/ppi/" ,
+      "lrc" : "http://landregistry.data.gov.uk/def/common/" ,
+      "timestamp" : "http://landregistry.data.gov.uk/api/timestamp" ,
+      "data" : "http://landregistry.data.gov.uk/api/data" ,
+      "price" : "http://landregistry.data.gov.uk/def/ppi/price" ,
+      "date" : "http://landregistry.data.gov.uk/def/ppi/date" ,
+      "address" : "http://landregistry.data.gov.uk/def/ppi/address" ,
+      "paon" : "http://landregistry.data.gov.uk/def/ppi/paon" ,
+      "street" : "http://landregistry.data.gov.uk/def/ppi/street" ,
+      "locality" : "http://landregistry.data.gov.uk/def/ppi/locality" ,
+      "town" : "http://landregistry.data.gov.uk/def/ppi/town" ,
+      "county" : "http://landregistry.data.gov.uk/def/ppi/county" ,
+      "distict" : "http://landregistry.data.gov.uk/def/ppi/distict" ,
+      "postcode" : "http://landregistry.data.gov.uk/def/ppi/postcode"
+    }
+}

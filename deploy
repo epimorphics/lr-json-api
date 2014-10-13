@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rsync -a --delete pages afs-1:pages/
+mvn package
+scp -r target/json-api-0.0.0-SNAPSHOT-app.jar afs-1:

@@ -1,0 +1,5 @@
+"@context": {
+    "timestamp": "http://landregistry.data.gov.uk/api/timestamp",
+    "data": "http://landregistry.data.gov.uk/api/data",
+    "hpi": "http://landregistry.data.gov.uk/def/hpi/"
+}

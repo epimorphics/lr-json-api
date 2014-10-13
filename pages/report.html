@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>LR-PPD &amp; LR-HPI</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,300italic,400italic' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+  </head>
+
+
+  <body>
+    
+    <div class="container-fluid">
+
+      <p><a href="api-doc.html">Documentation</a></p>
+
+      <div class="page-header">
+        <h1>LR-PPD</h1>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-1"></div>
+        
+        <div class="col-md-9"> 
+          <ul>
+            <li><a href="ppd-api.html">PPD API</a></li>
+            <li><a href="hpi-api.html">HPI API</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="page-header">
+        <h1>PPD</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-9"> 
+          <form name="input" action="/ppd" method="get">
+            <pre>
+              <table>
+                <tr style="border: 0px">
+                  <td style="border: 0px">Town</td>
+                  <td style="border: 0px"><input type="text" name="town" size=10></td>
+                </tr>
+                <tr>
+                  <td style="border: 0px">Road name</td>
+                  <td style="border: 0px"><input type="text" name="roadname" size=10></td>
+                </tr>
+                <tr>
+                  <td style="border: 0px" >Number</td>
+                  <td style="border: 0px" ><input type="text" name="number" size=10></td>
+                </tr>
+              </table>
+              <input type="submit" value="Submit">
+            </pre>
+          </form>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      
+      <div class="page-header">
+        <h1>HPI</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-9"> 
+          <form name="input" action="/hpi" method="get">
+            <pre>
+              <table>
+                <tr style="border: 0px">
+                  <td style="border: 0px">Region</td>
+                  <td style="border: 0px"><input type="text" name="region" size=15></td>
+                </tr>
+              </table>
+              <input type="submit" value="Submit">
+            </pre>
+          </form>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </body>
+</html>

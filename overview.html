@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>LR : Developer JSON Web APIs</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,300italic,400italic' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+  </head>
+
+
+  <body>
+    
+    <div class="container-fluid">
+
+      <div class="page-header">
+        <h1>LR : Developer JSON Web APIs</h1>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-1"></div>
+        
+        <div class="col-md-9">
+
+          <h3>tl;dr</h3>
+          <ul>
+            <li>Focused JSON API for specific data from the hosted data.</li>
+            <li>Different class of data consumer to the data
+              extraction/analysis class</li>
+          </ul>
+
+          <p>Click this, tell what you think:</p>
+          <pre><a href="http://afs-1.epimorphics.com/report/PPD?town=bristol&amp;roadname=grange%20park"
+                  >http://afs-1.epimorphics.com/ppd?town=bristol&amp;roadname=grange%20park</a></pre>
+
+          <h3>Introduction</h3>
+          <p>
+            This is an experiment to build the 
+            <a href="http://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_web_services"
+               >common RESTish web API</a> style of
+            data access as is typified by Shoothill Flood data or the BBC or
+            various other places and to understand the cost of production of
+            such APIs.
+          </p>
+          <p>
+            Such APIs deliver specific information and are "self-service"
+            in that the document should be all the app developer needs.
+            They are a compliement to access paths to locate and extract
+            large sections of the dataset.
+          </p>
+          <p>
+            This one uses the query string heavily but that's because those
+            parts are not exact match. A set of URIs for each town or a postcode
+            could be done in the URI-path style.
+            </p>
+          <p>
+            It produces JSON-like JSON with JSON-LD annotations.
+          </p>
+          <p>It would be better to have less query string and more path
+            components.  That is a limitation of the demo which uses plain
+            old HTML forms.</p>
+            
+          <h3>How it works</h3>
+          <p>
+            There is a SPARQL query that gets completed, then sent to the SPARQL
+            endpoint of landregistry.data.gov.uk. The results are formatted into
+            JSON, fields are omitted if not found by the query.  It uses the
+            text index because the SPARQL query has <tt>text:query</tt>.
+            </p>
+          <p>
+            The results are built as a JSON object and it preserves field order,
+            which is nice for developer readability having the time stamp first
+            and makes the address part come out in natural order.<br>
+          </p>
+          <h3>API</h3>
+          <p>The endpoint is</p>
+    
+          <pre>http://afs-1.epimorphics.com/ppd?town=...&amp;roadname=...&amp;number=...</pre>
+          <p>where</p>
+          <ul>
+            <li>"town" can be empty - defaults to "bristol"</li>
+            <li>"roadname" - required</li>
+            <li>"number" - optional<br>
+            </li>
+          </ul>
+          <p>
+            This returns JSON with a little JSON-LD sprinkled over it.  It is
+            supposed to be useful as JSON and as JSON-LD/RDF.
+            </p>
+          <p>
+            Add "<tt>&amp;inline=true</tt>" to get the JSON-LD context inline
+            and not as a link.  You can post that into the JSON-LD playground
+            (You can't with the @context link because CORS isn't setup). Jena
+            can read the JSON-LD as RDF.</p>
+          <p>
+            In Jena 2.12.1, this works:
+          </p>
+          <pre>	riot --syntax jsonld --out turtle 'http://afs-1.epimorphics.com/ppd?town=bristol&amp;roadname=grange%20park'</pre>
+          <p>The response has a link to the documentation:</p>
+
+          <p><tt><a href="http://afs-1.epimorphics.com/ppd-doc.html">http://afs-1.epimorphics.com/ppd-doc.html</a></tt></p>
+          <h3>Results</h3>
+          <p>
+            The target is in the first place our own production and maintenance
+            of web APIs. </p>
+          <ol>
+            <li>Write SPARQL query</li>
+            <li>Write mapping to JSON(-LD)<br>
+            </li>
+            <li>Add @context.</li>
+            <li>Documentation<br>
+            </li>
+            <li>Test</li>
+            <li>Deploy<br>
+            </li>
+          </ol>
+          <p>
+            There is very little code. Jersey does the URL parsing, the SPARQL
+            query is a template, the JSON mapping is just variable to field name
+            + nesting for the address.</p>
+          <p>
+            Even if left as code, it's very small and follows a template so
+            "copy-template-project and modify" is easy to do. Modification is
+            more about designing the API; the code needed is straight forward so
+            I guess design time+1 day to develop and test.  There is a built-in
+            test setup using grizzly.</p>
+          <p>
+            You do have to write the SPARQL query, or more likely, hack an
+            example one.  This is not for everyone but it is for us, so that's
+            easy.</p>
+          <p>
+            It is not crawlable. It has predictable performance.
+          </p>
+          <p>
+            This is huge win for us operationally and for the customer to
+            provide SLAs around services. The API is quite narrow and the SPARQL
+            is not arbitrary.
+          </p>
+        </div>
+        <div class="col-md-2"></div>
+	    </div>             
+    </div>    
+  </body>
+</html>

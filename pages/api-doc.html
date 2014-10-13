@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>LR JSON APIs</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,300italic,400italic' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+  </head>
+
+
+  <body>
+    
+    <div class="container-fluid">
+
+      <div class="page-header">
+        <h1>LR JSON APIs</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"></div>
+        
+        <div class="col-md-9">
+
+	  <h1>PPD</h1>
+		<p><a href="http://landregistry.data.gov.uk/ppd-documentation.html">PPD Data Documentation</a></p>
+
+          <h2>
+            Get price, date, address.
+          </h2>
+
+          <dl>
+            <dt><tt>GET /ppd?town={<i>town</i>}&roadname={<i>roadname</i>}&number={<i>number</i>}</tt></dt>
+            <dd>
+              <ul>
+                <li><tt>{<i>town</i>}</tt> &ndash; can be empty - defaults to "bristol"</li>
+                <li><tt>{<i>roadname</i>}</tt> &ndash; required</li>
+                <li><tt>{<i>number</i>}</tt> &ndash; optional</li>
+              </ul>
+            </dd>
+          </dl>
+
+	  <h1>HPI</h1>
+             <p><a href="http://landregistry.data.gov.uk/hpi-documentation.html">HPI Data Documentation</a> </p>
+
+          <h2>Get the HPI index for the last 12 months</h2>
+
+           <dl>
+            <dt><tt>GET /hpi/{<i>region</i>}</tt></dt>
+            <dd>
+              <ul>
+                <li><tt>{<i>region</i>}</tt> &ndash; Name of region (required)
+                  e.g. "city-of-bristol" 
+                </li>
+              </ul>
+            </dd>
+          </dl>
+
+        </div>
+        <div class="col-md-2"></div>
+
+  </body>
+</html>
