@@ -36,7 +36,7 @@
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-9">
-
+          <p>App view:</p>
           <form name="input" action="/hpi" method="get">
             <pre>
               <table>
@@ -44,16 +44,22 @@
                   <td style="border: 0px">Region</td>
                   <td style="border: 0px"><input type="text" name="region" size=15></td>
                 </tr>
+                <tr>
+                  <td style="border: 0px"></td>
+                  <td style="border: 0px"><input type="submit" value="Submit"></td>
+                </tr>
               </table>
-              <input type="submit" value="Submit">
             </pre>
             
-            <p><tt>GET /hpi/{region}</tt></p>
             <ul>
               <li><tt>{<i>region</i>}</tt> &ndash; Region e.g. "city-of-bristol"</li>
             </ul>
           </form> 
-           <form name="input" action="/hpi" method="get">
+
+          <hr/>
+          <p>Developer view:</p>
+          <p><tt>GET /hpi/{region}</tt></p>
+          <form name="input" action="/hpi" method="get">
              <pre>
                GET /hpi/{<input type="text" name="region" size=15>}
                <input type="submit" value="Submit">

@@ -52,11 +52,14 @@
                   <td style="border: 0px" >Number</td>
                   <td style="border: 0px" ><input type="text" name="number" size=10></td>
                 </tr>
+                <tr>
+                  <td style="border: 0px" ></td>
+                  <td style="border: 0px" ><input type="submit" value="Submit"></td>
+                </tr>
               </table>
-              <input type="submit" value="Submit">
             </pre>
           </form> 
-              <p><tt>GET /hpi/{region}</tt></p>
+
           <ul>
             <li><tt>{<i>town</i>}</tt> &ndash; can be empty - defaults to "bristol"</li>
             <li><tt>{<i>roadname</i>}</tt> &ndash; required</li>
@@ -66,6 +69,7 @@
 
           <hr/>
           <p>Developer view:</p>
+          <p><tt>GET /ppd?town={town}&roadname={roadname}&number={number}</tt></p>
           <pre>
             <form name="input" action="/ppd" method="get">
               GET /ppd?town=<input type="text" name="town" size=10>&roadname=<input type="text" name="roadname" size=10>&number=<input type="text" name="number" size=5>
