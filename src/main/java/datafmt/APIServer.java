@@ -53,7 +53,7 @@ public class APIServer {
 
     public static void grizzlyServer(int port) {       
         URI baseUri = UriBuilder.fromUri("http://0.0.0.0/").port(port).build();
-        ResourceConfig config = new ResourceConfig(PPD_API.class, HPI_API.class);
+        ResourceConfig config = new ResourceConfig(PPD_API.class, HPI_API.class, API_Ctl.class);
         
         HttpServer server = GrizzlyHttpServerFactory.createHttpServer(baseUri, config);
         StaticHttpHandler pages = new StaticHttpHandler("pages") ;
