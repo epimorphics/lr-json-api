@@ -32,23 +32,26 @@ import com.hp.hpl.jena.sparql.util.Utils ;
 
 @Path("/ping")
 public class API_Ctl {
-    static Logger log = LoggerFactory.getLogger(API_Ctl.class) ;
+    private static Logger log = LoggerFactory.getLogger(API_Ctl.class) ;
     
     @GET
     @Produces("text/plain")
-    public Response pingByGet() { return ping(); }
-    
+    public Response pingByGet() {
+        return ping() ;
+    }
+
     @POST
     @Produces("text/plain")
-    public Response pingByPost() { return ping() ; }
+    public Response pingByPost() {
+        return ping() ;
+    }
     
     private Response ping() { 
-        log.info("Ping!") ;
         CacheControl cc = new CacheControl() ;
         cc.setNoCache(true);
         String e = Utils.nowAsString()+"\n" ;  
+        log.info("Ping") ;
         return Response.ok(e).cacheControl(cc).build() ;
     }
-
 }
 
