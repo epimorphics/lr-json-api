@@ -9,7 +9,7 @@
   <groupId>org.seaborne</groupId>
   <artifactId>json-api</artifactId>
   <packaging>jar</packaging>
-  <name>json-api</name>
+  <name>lr-json-api</name>
   <version>0.0.0-SNAPSHOT</version>
 
   <description>JSON API</description>
