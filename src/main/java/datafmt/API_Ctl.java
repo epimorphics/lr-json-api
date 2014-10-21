@@ -49,6 +49,5 @@ public class API_Ctl {
         String e = Utils.nowAsString()+"\n" ;  
         return Response.ok(e).cacheControl(cc).build() ;
     }
-
 }
 
