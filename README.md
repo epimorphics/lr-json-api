@@ -1,3 +1,5 @@
+# Deprecated
+
 lr-json-api
 ===========
 
